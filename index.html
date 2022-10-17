@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tablica</title>
+  </head>
+  <body>
+    <!-- Do tablicy 100 elementow wyloswac liczby z zakresu 50-100 oddzielone
+    spacjami -wyswietl od konca - policzyc sume - policzyc sume elementow
+    podzilenym 2 - policzyc sume elementow podzilenym 3 - policzyc sume
+    elementow podzilenym 5 wysietlic 1 i ostani element - porownac 1 i ostani
+    <!-- -czy tablica jest palindromen -posortowac rosnaca -->
+    <script>
+      //Elo
+      let tablica = new Array(100);
+      for (i = 0; i < 101; i++) {
+        tablica[i] = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
+        document.write(tablica[i] + " ");
+      }
+      document.write("<br>" + "<br>");
+      for (i = 100; i >= 0; i--) {
+        document.write(tablica[i] + " ");
+      }
+
+      let sum = 0;
+      for (let i = 0; i < tablica.length; i++) {
+        sum += tablica[i];
+        document.write("<br> <br>");
+        document.write(sum);
+      }
+    </script>
+  </body>
+</html>
