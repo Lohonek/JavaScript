@@ -14,21 +14,42 @@
     <!-- -czy tablica jest palindromen -posortowac rosnaca -->
     <script>
       //Elo
+      dzielenie2 = 0;
+      dzielenie3 = 0;
+      dzielenie5 = 0;
       let tablica = new Array(100);
       for (i = 0; i < 101; i++) {
         tablica[i] = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
         document.write(tablica[i] + " ");
+        if (tablica[i] % 2 == 0) dzielenie2 += tablica[i];
+        if (tablica[i] % 3 == 0) dzielenie3 += tablica[i];
+        if (tablica[i] % 5 == 0) dzielenie5 += tablica[i];
       }
+
       document.write("<br>" + "<br>");
       for (i = 100; i >= 0; i--) {
         document.write(tablica[i] + " ");
       }
 
       let sum = 0;
-      for (let i = 0; i < tablica.length; i++) {
+      i = 0;
+
+      do {
         sum += tablica[i];
-        document.write("<br> <br>");
-        document.write(sum);
+        i++;
+      } while (i < tablica.length);
+
+      document.write("<br><br>" + "Suma wynosi: " + sum + " :)" + "<br>");
+      document.write("Podzilne przez 2: " + dzielenie2 + "<br>");
+      document.write("Podzilne przez 3: " + dzielenie3 + "<br>");
+      document.write("Podzilne przez 5: " + dzielenie5 + "<br>");
+      document.write("Pierwsza liczba wynosi: " + tablica[0] + "<br>");
+      document.write("Ostatnia liczba liczba wynosi: " + tablica[99] + "<br>");
+
+      if (tablica[0] > tablica[100]) {
+        document.write("Piersza liczba jest wieksza od ostatniej");
+      } else {
+        document.write("Piersza liczba jest mniejsza od ostatniej");
       }
     </script>
   </body>
