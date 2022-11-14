@@ -1,0 +1,63 @@
+* {
+  font-family: "Lato", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+input {
+  width: 60px;
+  height: 30px;
+  background: #333;
+  box-shadow: 0 0 0 0.05em black;
+  border-bottom-color: #555;
+  border-radius: 0.3em;
+  color: white;
+}
+
+input:active {
+  background: #2a2a2a;
+  color: #aaa;
+  position: relative;
+  top: 0.2em;
+  box-shadow: 0 0 0 0.05em black;
+}
+.row1,
+.row2,
+.row3,
+.row4,
+.row5 {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+.row5 {
+  padding-left: 34%;
+}
+
+#size3 {
+  width: 180px;
+}
+#size2 {
+  width: 92px;
+}
+/* #text {
+  width: 75%;
+  height: 500px;
+  box-shadow: 0 0 0 0.05em black;
+  border-bottom-color: #555;
+  border-radius: 0.3em;
+  border: 2px solid black;
+} */
+
+#wynik {
+  width: 45%;
+  height: 500px;
+  box-shadow: 0 0 0 0.05em black;
+  border-bottom-color: #555;
+  border-radius: 0.3em;
+  border: 2px solid black;
+  margin-left: 23%;
+  margin-right: auto;
+}

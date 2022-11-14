@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <style>
+      * {
+        font-family: "Lato", sans-serif;
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+      }
+
+      input {
+        width: 60px;
+        height: 30px;
+        background: #333;
+        box-shadow: 0 0 0 0.05em black;
+        border-bottom-color: #555;
+        border-radius: 0.5em;
+        color: white;
+      }
+
+      input:active {
+        background: #2a2a2a;
+        color: #aaa;
+        position: relative;
+        top: 0.2em;
+        box-shadow: 0 0 0 0.05em black;
+      }
+      .row1,
+      .row2,
+      .row3,
+      .row4,
+      .row5 {
+        width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5px;
+      }
+
+      .row5 {
+        padding-left: 34%;
+      }
+
+      #size3 {
+        width: 180px;
+      }
+      #size2 {
+        width: 92px;
+      }
+
+      .wrapper {
+        padding: 20px;
+        margin: 50px auto;
+      }
+
+      #wynik {
+        width: 45%;
+        height: 500px;
+        margin-left: 23%;
+        margin-right: auto;
+        overflow: hidden;
+        display: -webkit-box;
+      }
+    </style>
+    <div class="row1">
+      <input type="button" value="`" onclick="pisz(this.value)" />
+      <input type="button" value="1" onclick="pisz(this.value)" />
+      <input type="button" value="2" onclick="pisz(this.value)" />
+      <input type="button" value="3" onclick="pisz(this.value)" />
+      <input type="button" value="4" onclick="pisz(this.value)" />
+      <input type="button" value="5" onclick="pisz(this.value)" />
+      <input type="button" value="6" onclick="pisz(this.value)" />
+      <input type="button" value="7" onclick="pisz(this.value)" />
+      <input type="button" value="8" onclick="pisz(this.value)" />
+      <input type="button" value="9" onclick="pisz(this.value)" />
+      <input type="button" value="-" onclick="pisz(this.value)" />
+      <input type="button" value="=" onclick="pisz(this.value)" />
+      <input type="button" value="backsp" onclick="pisz(this.value)" />
+    </div>
+    <div class="row2">
+      <input type="button" value="tab" onclick="pisz(this.value)" />
+      <input type="button" value="q" onclick="pisz(this.value)" />
+      <input type="button" value="w" onclick="pisz(this.value)" />
+      <input type="button" value="e" onclick="pisz(this.value)" />
+      <input type="button" value="r" onclick="pisz(this.value)" />
+      <input type="button" value="t" onclick="pisz(this.value)" />
+      <input type="button" value="y" onclick="pisz(this.value)" />
+      <input type="button" value="u" onclick="pisz(this.value)" />
+      <input type="button" value="i" onclick="pisz(this.value)" />
+      <input type="button" value="o" onclick="pisz(this.value)" />
+      <input type="button" value="p" onclick="pisz(this.value)" />
+      <input type="button" value="[" onclick="pisz(this.value)" />
+      <input type="button" value="]" onclick="pisz(this.value)" />
+    </div>
+    <div class="row3">
+      <input type="button" value="caspsl" onclick="pisz(this.value)" />
+      <input type="button" value="a" onclick="pisz(this.value)" />
+      <input type="button" value="s" onclick="pisz(this.value)" />
+      <input type="button" value="d" onclick="pisz(this.value)" />
+      <input type="button" value="f" onclick="pisz(this.value)" />
+      <input type="button" value="g" onclick="pisz(this.value)" />
+      <input type="button" value="h" onclick="pisz(this.value)" />
+      <input type="button" value="j" onclick="pisz(this.value)" />
+      <input type="button" value="k" onclick="pisz(this.value)" />
+      <input type="button" value="l" onclick="pisz(this.value)" />
+      <input type="button" value=";" onclick="pisz(this.value)" />
+      <input type="button" value="'" onclick="pisz(this.value)" />
+      <input type="button" value="\" onclick="pisz(this.value)" />
+    </div>
+    <div class="row4">
+      <input
+        type="button"
+        id="size2"
+        value="shift"
+        onclick="pisz(this.value)"
+      />
+      <input type="button" value="z" onclick="pisz(this.value)" />
+      <input type="button" value="x" onclick="pisz(this.value)" />
+      <input type="button" value="c" onclick="pisz(this.value)" />
+      <input type="button" value="v" onclick="pisz(this.value)" />
+      <input type="button" value="b" onclick="pisz(this.value)" />
+      <input type="button" value="n" onclick="pisz(this.value)" />
+      <input type="button" value="m" onclick="pisz(this.value)" />
+      <input type="button" value="," onclick="pisz(this.value)" />
+      <input type="button" value="." onclick="pisz(this.value)" />
+      <input type="button" value="/" onclick="pisz(this.value)" />
+      <input
+        type="button"
+        id="size2"
+        value="shift"
+        onclick="pisz(this.value)"
+      />
+    </div>
+    <div class="row5">
+      <input
+        type="button"
+        id="size3"
+        value="space"
+        onclick="pisz(this.value)"
+      />
+    </div>
+    <div class="wrapper">
+      <p id="wynik"></p>
+    </div>
+    <script>
+      function pisz(znak) {
+        let wynik = document.getElementById("wynik");
+        if (znak == "backsp") {
+          wynik.innerHTML = wynik.innerHTML.slice(0, -1);
+        } else if (znak == "space") {
+          wynik.innerHTML = wynik.innerHTML + "\u00A0";
+        } else if (znak == "tab") {
+          wynik.innerHTML = wynik.innerHTML + " " + "\u00A0" + "\u00A0";
+        } else if (znak == "caspsl") {
+          wynik.innerHTML = wynik.innerText + znak.toUpperCase();
+        } else {
+          wynik.innerHTML = wynik.innerText + znak;
+        }
+      }
+    </script>
+  </body>
+</html>
