@@ -149,23 +149,37 @@
         value="space"
         onclick="pisz(this.value)"
       />
+      <input
+        type="button"
+        id="size3"
+        value="poczta"
+        onclick="pisz(this.value)"
+      />
     </div>
     <div class="wrapper">
       <p id="wynik"></p>
     </div>
+
     <script>
+      var duze = false;
       function pisz(znak) {
         let wynik = document.getElementById("wynik");
         if (znak == "backsp") {
           wynik.innerHTML = wynik.innerHTML.slice(0, -1);
         } else if (znak == "space") {
-          wynik.innerHTML = wynik.innerHTML + "\u00A0";
+          wynik.innerHTML = wynik.innerHTML + " ";
         } else if (znak == "tab") {
-          wynik.innerHTML = wynik.innerHTML + " " + "\u00A0" + "\u00A0";
+          wynik.innerHTML = wynik.innerHTML + " " + " " + " ";
         } else if (znak == "caspsl") {
-          wynik.innerHTML = wynik.innerText + znak.toUpperCase();
+          duze = !duze;
+        } else if (znak == "poczta") {
+          window.open("mailto:test@example.com");
         } else {
-          wynik.innerHTML = wynik.innerText + znak;
+          if (duze) {
+            wynik.innerHTML = wynik.innerHTML + znak.toUpperCase();
+          } else {
+            wynik.innerHTML = wynik.innerHTML + znak;
+          }
         }
       }
     </script>
