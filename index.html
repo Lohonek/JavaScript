@@ -1,55 +1,359 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl-PL">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tablica</title>
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!-- Do tablicy 100 elementow wyloswac liczby z zakresu 50-100 oddzielone
-    spacjami -wyswietl od konca - policzyc sume - policzyc sume elementow
-    podzilenym 2 - policzyc sume elementow podzilenym 3 - policzyc sume
-    elementow podzilenym 5 wysietlic 1 i ostani element - porownac 1 i ostani
-    <!-- -czy tablica jest palindromen -posortowac rosnaca -->
+    <style>
+      * {
+        font-family: "Lato", sans-serif;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .keyboard{
+        max-width: 1050px;
+        padding: 20px;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(197, 197, 197);
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: repeat(30, 29px);
+        grid-template-rows: repeat(5, 60px);
+        grid-gap: 5px;
+      }
+
+      .key {
+        background-color: rgb(243, 243, 243);
+        border: 2px solid black;
+        border-radius: 5px;
+        grid-column: span 2;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      .key:hover {
+        border: 1px solid #eeeeee;
+      }
+
+      .delete {
+        grid-column: span 4;
+      }
+
+      .tab {
+        grid-column: span 3;
+      }
+
+      .backslash {
+        grid-column: span 3;
+      }
+
+      .capslock {
+        grid-column: span 4;
+      }
+
+      .return {
+        grid-column: span 4;
+      }
+
+      .leftshift {
+        grid-column: span 5;
+      }
+
+      .rightshift {
+        grid-column: span 5;
+      }
+
+      .leftctrl {
+        grid-column: span 3;
+      }
+
+      .command {
+        grid-column: span 3;
+        font-size: 14px;
+      }
+
+      .space {
+        grid-column: span 13;
+      }
+
+      input {
+        font-size: 20px;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      #wynik {
+        width: 1015px;
+        height: 200px;
+        border: none;
+        font-size: 20px;
+      }
+
+      .addons{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        
+      }
+
+      #poczta{
+        background-color: rgb(243, 243, 243);
+        border: 2px solid black;
+      }
+    </style>
+    <div class="addons">
+      <input type="button" value="Poczta" onclick="pisz(this.value)" id="poczta"/>
+    </div>
+    <div class="keyboard">
+      <div class="key">
+        <input type="button" value="~" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="1" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="2" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="3" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="4" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="5" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="6" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="7" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="8" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="9" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="0" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="-" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="+" onclick="pisz(this.value)" />
+      </div>
+      <div class="key delete">
+        <input type="button" value="Delete" onclick="pisz(this.value)" />
+      </div>
+      <div class="key tab">
+        <input type="button" value="Tab" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="q" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="w" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="e" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="r" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="t" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="y" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="u" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="i" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="o" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="p" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="[" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="]" onclick="pisz(this.value)" />
+      </div>
+      <div class="key backslash">
+        <input type="button" value="\" onclick="pisz(this.value)" />
+      </div>
+      <div class="key capslock">
+        <input type="button" value="CapsLock" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="a" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="s" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="d" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="f" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="g" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="h" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="j" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="k" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="l" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value=";" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="'" onclick="pisz(this.value)" />
+      </div>
+      <div class="key return">
+        <input type="button" value="Enter" onclick="pisz(this.value)" />
+      </div>
+      <div class="key leftshift">
+        <input type="button" value="Shift" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="z" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="x" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="c" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="v" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="b" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="n" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="m" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="," onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="." onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="/" onclick="pisz(this.value)" />
+      </div>
+      <div class="key rightshift">
+        <input type="button" value="Shift" onclick="pisz(this.value)" />
+      </div>
+      <div class="key leftctrl">
+        <input type="button" value="Ctrl" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="Alt" onclick="pisz(this.value)" />
+      </div>
+      <div class="key command">
+        <input type="button" value="Command" onclick="pisz(this.value)" />
+      </div>
+      <div class="key space">
+        <input type="button" value="Space" onclick="pisz(this.value)" />
+      </div>
+      <div class="key command">
+        <input type="button" value="Command" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="Alt" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="Ctrl" onclick="pisz(this.value)" />
+      </div>
+      <div class="key">
+        <input type="button" value="Fn" onclick="pisz(this.value)" />
+      </div>
+
+      <div class="wyswietl">
+        <textarea name="" id="wynik"></textarea>
+      </div>
+
     <script>
-      //Elo
-      dzielenie2 = 0;
-      dzielenie3 = 0;
-      dzielenie5 = 0;
-      let tablica = new Array(100);
-      for (i = 0; i < 101; i++) {
-        tablica[i] = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
-        document.write(tablica[i] + " ");
-        if (tablica[i] % 2 == 0) dzielenie2 += tablica[i];
-        if (tablica[i] % 3 == 0) dzielenie3 += tablica[i];
-        if (tablica[i] % 5 == 0) dzielenie5 += tablica[i];
-      }
-
-      document.write("<br>" + "<br>");
-      for (i = 100; i >= 0; i--) {
-        document.write(tablica[i] + " ");
-      }
-
-      let sum = 0;
-      i = 0;
-
-      do {
-        sum += tablica[i];
-        i++;
-      } while (i < tablica.length);
-
-      document.write("<br><br>" + "Suma wynosi: " + sum + " :)" + "<br>");
-      document.write("Podzilne przez 2: " + dzielenie2 + "<br>");
-      document.write("Podzilne przez 3: " + dzielenie3 + "<br>");
-      document.write("Podzilne przez 5: " + dzielenie5 + "<br>");
-      document.write("Pierwsza liczba wynosi: " + tablica[0] + "<br>");
-      document.write("Ostatnia liczba liczba wynosi: " + tablica[99] + "<br>");
-
-      if (tablica[0] > tablica[100]) {
-        document.write("Piersza liczba jest wieksza od ostatniej");
-      } else {
-        document.write("Piersza liczba jest mniejsza od ostatniej");
+      var duze = false;
+      var polskie = false
+      var shift = 1;
+      function pisz(znak) {
+        let wynik = document.getElementById("wynik");
+        if (znak == "Delete") {
+          wynik.innerHTML = wynik.innerHTML.slice(0, -1);
+        } else if (znak == "Space") {
+          wynik.innerHTML = wynik.innerHTML + " ";
+        } else if (znak == "Tab") {
+          wynik.innerHTML = wynik.innerHTML + "   ";
+        } else if (znak == "Shift") {
+          shift = shift + 1;
+        } else if (znak == "Ctrl") {
+          wynik.innerHTML = wynik.innerHTML;
+        } else if (znak == "Alt") {
+          polskie = !polskie
+        } else if (znak == "Fn") {
+          wynik.innerHTML = wynik.innerHTML;
+        } else if (znak == "Enter") {
+          wynik.innerHTML = wynik.innerHTML;
+        } else if (znak == "Command") {
+          wynik.innerHTML = wynik.innerHTML;
+        } else if (znak == "CapsLock") {
+          duze = !duze;
+        } else if (znak == "Poczta") {
+          window.open("mailto:test@example.com");
+        } else {
+          if (duze) {
+            wynik.innerHTML = wynik.innerHTML + znak.toUpperCase();
+          } else if (polskie) {
+            wynik.innerHTML = wynik.innerHTML + znak;
+          }
+          else if (shift % 2 == 0) {
+            wynik.innerHTML = wynik.innerHTML + znak.toUpperCase();
+            shift = shift + 1;
+          } else {
+            wynik.innerHTML = wynik.innerHTML + znak;
+          }
+        }
       }
     </script>
   </body>
